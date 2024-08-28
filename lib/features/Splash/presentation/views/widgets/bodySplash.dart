@@ -1,5 +1,8 @@
+import 'package:bookly/constants.dart';
 import 'package:bookly/core/asstes.dart';
+import 'package:bookly/features/home/Presentation/view/homePage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class BodySplash extends StatefulWidget {
   const BodySplash({
@@ -18,15 +21,12 @@ class _BodySplashState extends State<BodySplash>
   void initState() {
     // TODO: implement initState
     super.initState();
-    animationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1));
-    slidinganmaition = Tween<Offset>(begin: Offset(0, 6), end: Offset(0, 0))
-        .animate(animationController);
-    animationController.forward();
-    slidinganmaition.addListener(() {
-      setState(() {});
-    });
-  }
+    IntuSlidanmation();
+   
+  
+  navigattohomepage(); }
+
+ 
 
   @override
   void dispose() {
@@ -53,4 +53,24 @@ class _BodySplashState extends State<BodySplash>
       ],
     );
   }
-}
+
+
+
+
+ void navigattohomepage() {
+     Future.delayed(const Duration(seconds: 3), () {
+      Get.to(()=> Homepage(),transition: Transition.fade,duration: ktrans);
+      
+    });
+  }
+
+  void IntuSlidanmation() {
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    slidinganmaition = Tween<Offset>(begin: Offset(0, 6), end: Offset(0, 0))
+        .animate(animationController);
+    animationController.forward();
+     slidinganmaition.addListener(() {
+      setState(() {});
+    });
+  }}
