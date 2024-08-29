@@ -11,11 +11,12 @@ class BodyHomePge  extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
        CutomAppBar(),
        SizedBox(height: 20,),
        FeatrueBookslist(),
-        
+        Text("Best Seller", style: TextStyle(fontSize: 21,fontWeight: FontWeight.w600),)
       ],
     );
   }
