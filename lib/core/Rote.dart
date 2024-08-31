@@ -1,5 +1,6 @@
 import 'package:bookly/features/Splash/presentation/views/pages/SplashScreen.dart';
 import 'package:bookly/features/home/Presentation/view/BookDetailsPage.dart';
+import 'package:bookly/features/home/Presentation/view/Searchview.dart';
 import 'package:bookly/features/home/Presentation/view/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -22,7 +23,13 @@ abstract class Approte {
     path: '/det',
     builder: (BuildContext context, GoRouterState state) {
       return const BookDetailsPage();
+    },),
+    GoRoute(
+    path: '/seach',
+    builder: (BuildContext context, GoRouterState state) {
+      return const Searchview();
     },)
+
 ]);
 
 }
