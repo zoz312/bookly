@@ -2,7 +2,7 @@ import 'package:bookly/constants.dart';
 import 'package:bookly/core/asstes.dart';
 import 'package:bookly/features/home/Presentation/view/homePage.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class BodySplash extends StatefulWidget {
   const BodySplash({
@@ -22,11 +22,9 @@ class _BodySplashState extends State<BodySplash>
     // TODO: implement initState
     super.initState();
     IntuSlidanmation();
-   
-  
-  navigattohomepage(); }
 
- 
+    navigattohomepage();
+  }
 
   @override
   void dispose() {
@@ -54,13 +52,10 @@ class _BodySplashState extends State<BodySplash>
     );
   }
 
-
-
-
- void navigattohomepage() {
-     Future.delayed(const Duration(seconds: 3), () {
-      Get.to(()=> Homepage(),transition: Transition.fade,duration: ktrans);
-      
+  void navigattohomepage() {
+    Future.delayed(const Duration(seconds: 3), () {
+      //  Get.to(()=> Homepage(),transition: Transition.fade,duration: ktrans);
+      GoRouter.of(context).push('/m');
     });
   }
 
@@ -70,7 +65,8 @@ class _BodySplashState extends State<BodySplash>
     slidinganmaition = Tween<Offset>(begin: Offset(0, 6), end: Offset(0, 0))
         .animate(animationController);
     animationController.forward();
-     slidinganmaition.addListener(() {
+    slidinganmaition.addListener(() {
       setState(() {});
     });
-  }}
+  }
+}

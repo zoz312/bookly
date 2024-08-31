@@ -1,7 +1,9 @@
 import 'package:bookly/constants.dart';
+import 'package:bookly/core/Rote.dart';
 import 'package:bookly/features/Splash/presentation/views/pages/SplashScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -14,13 +16,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp.router(
       theme: ThemeData.dark().copyWith(
-      textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
-        scaffoldBackgroundColor:  KPaimaryColor
-      ),
+          textTheme:
+              GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
+          scaffoldBackgroundColor: KPaimaryColor),
       debugShowCheckedModeBanner: false,
-      home: Splashscreen(),
+      routerConfig: Approte.router,
     );
+
   }
 }
+
+
