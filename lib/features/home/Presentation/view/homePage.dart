@@ -10,7 +10,7 @@ class Homepage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
          body: Padding(
-           padding: const EdgeInsets.symmetric(horizontal: 24.0,vertical: 30),
+           padding: const EdgeInsets.only(left: 30.0,right: 30, top: 30),
            child: BodyHomePge(),
          ),
       ),
