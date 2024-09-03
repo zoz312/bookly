@@ -22,7 +22,7 @@ class BestSalleritem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        GoRouter.of(context).push('/det');
+        GoRouter.of(context).push('/det',extra:bookModel);
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 10),

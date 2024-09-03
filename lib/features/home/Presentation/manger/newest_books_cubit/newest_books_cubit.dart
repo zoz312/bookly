@@ -11,7 +11,7 @@ class NewestBooksCubit extends Cubit<NewestBooksState> {
 
   Future<void> fatchnewest() async {
     emit(NewsetBooksLoading());
-    var result = await repoHome.fatchfeaturdaBooks();
+    var result = await repoHome.fatchBestSellerBooks();
     result.fold((failure) {
       emit(NewsetBooksFailure(failure.errormassage));
     }, (books) {
