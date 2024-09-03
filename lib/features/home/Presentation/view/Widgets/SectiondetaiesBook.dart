@@ -13,7 +13,7 @@ class SectiondetaiesBook  extends StatelessWidget {
           const SizedBox(
                   height: 30,
                 ),
-                const featurdListItem(),
+                const featurdListItem(image: 'assets/images/test_image.png',),
                 const SizedBox(
                     //   width: MediaQuery.of(context).size.width * .5,
                     child: Text(
