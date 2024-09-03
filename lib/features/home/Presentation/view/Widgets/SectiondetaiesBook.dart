@@ -35,7 +35,7 @@ class SectiondetaiesBook  extends StatelessWidget {
                 const SizedBox(
                   height: 18,
                 ),
-                const RetaBestSeller(),
+                const RetaBestSeller(rate: '3,8',count: '7',),
                 const SizedBox(
                   height: 37,
                 ),
