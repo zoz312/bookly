@@ -15,7 +15,7 @@ class buttonAction extends StatelessWidget {
               topLeft: Radius.circular(20),
              
               bottomLeft: Radius.circular(20)),),
-          child: Center(child: Text('19.99 €',style: TextStyle(fontSize: 20,color: Colors.black,fontWeight:FontWeight.bold ),)),
+          child: Center(child: Text('Free',style: TextStyle(fontSize: 20,color: Colors.black,fontWeight:FontWeight.bold ),)),
             width: MediaQuery.of(context).size.width * .42,
             height: MediaQuery.of(context).size.height * .06,
            

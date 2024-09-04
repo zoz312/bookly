@@ -3,6 +3,7 @@ import 'package:bookly/features/home/Presentation/manger/Featurd_books_cubit/fea
 import 'package:bookly/features/home/Presentation/view/Widgets/FeaturdListItem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class FeatrueBookslist extends StatelessWidget {
   const FeatrueBookslist({
@@ -20,8 +21,13 @@ class FeatrueBookslist extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: 6,
               itemBuilder: (BuildContext context, int index) {
-                return featurdListItem(
-            image:state.books[index].volumeInfo.imageLinks!.thumbnail
+                return InkWell(
+                  onTap: (){
+                     GoRouter.of(context).push('/det',extra:state.books[index]);
+                  },
+                  child: featurdListItem(
+                              image:state.books[index].volumeInfo.imageLinks!.thumbnail
+                  ),
                 );
               },
             ),

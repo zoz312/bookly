@@ -24,7 +24,7 @@ class _BookDetailsPageState extends State<BookDetailsPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: BodydetailsPage(),
+        body: BodydetailsPage(bookModel: widget.bookModel,),
       ),
     );
   }

@@ -35,7 +35,7 @@ class HomeRepoImpl implements RepoHome {
   Future<Either<Failrue, List<BookModel>>> fatchfeaturdaBooks() async {
     try {
       var data = await apisevice.get(
-          urlPath: "volumes?Filtering=free-ebooks&q=computer science");
+          urlPath: "volumes?Filtering=free-ebooks&q=programing");
 
       List<BookModel> books = [];
       for (var element in data['items']) {
