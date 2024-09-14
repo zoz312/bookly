@@ -1,8 +1,11 @@
+import 'dart:ffi';
+
 import 'package:bookly/core/widget/customfilure.dart';
 import 'package:bookly/features/home/Presentation/manger/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly/features/home/Presentation/view/Widgets/BestSalleritem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shimmer/shimmer.dart';
 
 class listBestSoller extends StatelessWidget {
   const listBestSoller({
@@ -32,9 +35,37 @@ bookModel: state.books[index],
         } else if (state is NewsetBooksFailure) {
           return customFilure(errormsge: state.errMessage);
         } else {
-          return Center(
-            child: CircularProgressIndicator(),
-          );
+          return ListView.builder(
+             shrinkWrap: true,
+           physics: const NeverScrollableScrollPhysics(),
+                    padding: EdgeInsets.symmetric(vertical: 10),
+             itemCount: 4,
+             itemBuilder: (BuildContext context, int index) {
+               return   Shimmer.fromColors(child: 
+           Row(
+             children: [
+                ClipRRect(
+             borderRadius: BorderRadius.circular(16),
+             child: Container(
+              margin: EdgeInsets.symmetric(vertical: 10),
+               width: MediaQuery.of(context).size.width * .2,
+               height: MediaQuery.of(context).size.height * .17,
+              color: Colors.grey,
+             ),),
+            SizedBox( width: 10,) ,
+             Container(
+               color: Colors.grey,
+               height:MediaQuery.of(context).size.height * .17 ,
+             width:  MediaQuery.of(context).size.width * .6,
+             )
+             ],
+           )
+           
+           , baseColor:  Colors.grey, highlightColor:  Colors.white,);
+                   
+           
+          },
+           );
         }
       },
     );

@@ -3,6 +3,7 @@ import 'package:bookly/features/home/Presentation/view/Widgets/RetaBestSeller.da
 import 'package:bookly/features/home/Presentation/view/Widgets/buttonAction.dart';
 import 'package:bookly/features/home/data/Models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SectiondetaiesBook extends StatelessWidget {
   const SectiondetaiesBook({super.key, required this.bookModel});
@@ -18,12 +19,11 @@ class SectiondetaiesBook extends StatelessWidget {
             width: MediaQuery.of(context).size.width * .43,
             height: MediaQuery.of(context).size.height * .3,
             child: featurdListItem(
-              image:bookModel.volumeInfo.imageLinks!.thumbnail
-                )),
+                image: bookModel.volumeInfo.imageLinks!.thumbnail)),
         SizedBox(
           height: 30,
         ),
-      SizedBox(
+        SizedBox(
             //   width: MediaQuery.of(context).size.width * .5,
             child: Text(
           bookModel.volumeInfo.title.toString(),
@@ -36,9 +36,8 @@ class SectiondetaiesBook extends StatelessWidget {
           height: 3,
         ),
         Text(bookModel.volumeInfo.authors.toString(),
-        maxLines:1,
+            maxLines: 1,
             style: TextStyle(
-              
                 fontWeight: FontWeight.w500,
                 fontStyle: FontStyle.italic,
                 fontSize: 24,
@@ -46,14 +45,22 @@ class SectiondetaiesBook extends StatelessWidget {
         const SizedBox(
           height: 18,
         ),
-         RetaBestSeller(
+        RetaBestSeller(
           rate: bookModel.volumeInfo.averageRating.toString(),
           count: bookModel.volumeInfo.ratingsCount.toString(),
         ),
         const SizedBox(
           height: 37,
         ),
-        const buttonAction(),
+        buttonAction(
+          bookModel: bookModel,
+          ontap: () async {
+            Uri url = Uri.parse(bookModel.volumeInfo.previewLink??'');
+            if (!await launchUrl(url)) {
+              throw Exception('Could not launch $url');
+            }
+          },
+        ),
       ],
     );
   }
